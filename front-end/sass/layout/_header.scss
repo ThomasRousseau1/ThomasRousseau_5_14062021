@@ -1,0 +1,19 @@
+header { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5rem 0 5rem;
+    background: darken($background-color, 10%);
+    .header__logo { 
+        font-size: 3rem;
+        color: $colour-logo;
+    }
+    & i {
+        font-size: 2rem;
+        color: $colour-tertiary;
+    }
+    & i:hover {
+        transition: 300ms;
+        transform: scale(1.1);
+    }
+}

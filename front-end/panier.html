@@ -7,16 +7,70 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+    <!--Favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="ressources/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="ressources/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="ressources/images/favicon/favicon-16x16.png">
 </head>
 <body>
-    <header>
-        <h1>Oricam</h1>
-        <nav>
-            <a>Accueil</a>
-            <a>Produits</a>
-            <a>Contact</a>
-        </nav>
+    <!--Header-->
+    <header class="header">
+        <a href="index.html"><h1 class="header__logo">Oricam</h1></a>
+        <a href="panier.html"><i class="fas fa-shopping-cart"></i></a>
     </header>
+    <main>
+        <div class="checkout__titles">
+            <h2>Récapitulatif de votre commande</h2>
+            <h3>Votre panier ne comporte aucun article</h3>
+        </div>
+        <div class="checkout__buttons"> 
+            <button class="checkout__button" type="button">Vider le panier</button>
+            <button class="checkout__button" type="button">Continuer les achats</button>
+        </div>
+        <!--Formulaire-->
+        <form class="form">
+            <h3>Vos coordonnées</h3>
+            <div class="form__container">
+                <label for="name" class ="form__label">Nom :</label>
+                <button class="form__button"><i class="fas fa-user"></i></button>
+                <input class="form__input" type="text" placeholder="Votre nom">
+            </div>
+            <div class="form__container"></div>
+                <label for="name" class="form__label">Prénom :</label>
+                <button class="form__button"><i class="fas fa-user"></i></button>
+                <input class="form__input" type="text" placeholder="Votre prénom">
+            </div>
+            <div class="form__container"></div>
+                <label for="mail" class="form__label">Mail :</label>
+                <button class="form__button"><i class="fas fa-envelope"></i></button>
+                <input class="form__input" type="text" placeholder="Votre adresse mail">
+            </div>
+            <div class="form__container"></div>
+                <label for="location" class="form__label">Adresse :</label>
+                <button class="form__button"><i class="fas fa-home"></i></button>
+                <input class="form__input" type="text" placeholder="Votre adresse postale">
+            </div>
+            <div class="form__container"></div>
+                <label for="city" class="form__label">Ville :</label>
+                <button class="form__button"><i class="fas fa-home"></i></button>
+                <input class="form__input" type="text" placeholder="Votre ville">
+            </div>
+        </form>
+        <a href="confirmation.html"><button class="products__button" type="button">Confirmer votre commande</button></a>
+    </main>
+    <footer class="footer">
+        <div class="footer__socials">
+            <a href="index.html"><i class="fab fa-facebook"></i></a>
+            <a href="index.html"><i class="fab fa-instagram"></i></a>
+            <a href="index.html"><i class="fab fa-twitter"></i></a>
+            <a href="index.html"><i class="fab fa-youtube"></i></a>
+        </div>
+        <a href="mailto:oricam@gmail.com" class="footer__contact">Contact</a>
+    </footer>
+    <script src="https://kit.fontawesome.com/82c91e6d22.js" crossorigin="anonymous"></script>
 
 </body>
 </html>

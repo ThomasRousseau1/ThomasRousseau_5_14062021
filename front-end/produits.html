@@ -1,22 +1,71 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>Produits|Oricam</title>
-    <meta name="title" content="Oricam Produits">
+    <title>Produits | Oricam</title>
+    <meta name="title" content="Oricam - Produits">
     <meta name="description" content="Oricam est le site de vente de caméras et d'appareils photos vintage par excellence. Nos produits sont révisés et garantis pour votre tranquillité. Votre satisfaction est notre priorité.">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+    <!--Favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="ressources/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="ressources/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="ressources/images/favicon/favicon-16x16.png">
 </head>
 <body>
-    <header>
-        <h1>Oricam</h1>
-        <nav>
-            <a>Accueil</a>
-            <a>Produits</a>
-            <a>Contact</a>
-        </nav>
+    <!--Header-->
+    <header class="header">
+        <a href="index.html"><h1 class="header__logo">Oricam</h1></a>
+        <a href="panier.html"><i class="fas fa-shopping-cart"></i></a>
     </header>
+    <main class="main__product">
+        <!--Partie article-->
+        <article class="article">
+            <img class="article__image" src="ressources/images/vcam_1.jpg">
+            <h2 class="article__title">Zeiss Ikon</h2>
+            <p class="article__description">Fabriqué en <strong>Allemagne</strong> en 1932.<br>Dimensions et poids : 8 x 17.5 x 3.5 cm et 650 g.</p>
+            <div class="article__quantity">
+            <!--Pour les objectifs-->
+            <label for="lens-select">Objectif :</label>
+            <select name="lens">
+                <option value="50mm 1.8">50mm 1.8</option>
+                <option value="90mm 2.8">90mm 2.8</option>
+            </select>
+            <!--Pour la quantité-->
+                <label for="quantity-select">Quantité :</label>
+                <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <p class="article__price">699€</p>
+            </div>
+            <div class="article__button--container">
+                <a href="index.html"><button class="products__button">Voir d'autres modèles</button></a>
+                <a><button class="products__button">Ajouter au panier</button></a>
+            </div>
+        </article>
+    </main>
 
+    <footer class="footer">
+        <div class="footer__socials">
+            <a href="index.html"><i class="fab fa-facebook"></i></a>
+            <a href="index.html"><i class="fab fa-instagram"></i></a>
+            <a href="index.html"><i class="fab fa-twitter"></i></a>
+            <a href="index.html"><i class="fab fa-youtube"></i></a>
+        </div>
+        <a href="mailto:oricam@gmail.com" class="footer__contact">Contact</a>
+    </footer>
+    <script src="https://kit.fontawesome.com/82c91e6d22.js" crossorigin="anonymous"></script>
 </body>
 </html>

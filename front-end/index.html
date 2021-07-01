@@ -7,16 +7,101 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+    <!--Favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="ressources/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="ressources/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="ressources/images/favicon/favicon-16x16.png">
 </head>
 <body>
-    <header>
-        <h1>Oricam</h1>
-        <nav>
-            <a>Accueil</a>
-            <a>Produits</a>
-            <a>Contact</a>
-        </nav>
+        <!--Header-->
+    <header class="header">
+        <a href="index.html"><h1 class="header__logo">Oricam</h1></a>
+        <a href="panier.html"><i class="fas fa-shopping-cart"></i></a>
     </header>
-
+<main> 
+    <!--Bannière-->
+    <section class="banner">
+        <h2 class="banner__title">Découvrez notre séléction de caméras vintage</h2>
+        <a href="#products"><button class="banner__button">Nos Modèles</button></a>
+        <img src="ressources/images/vcamwallpaper2.jpg" class="banner__image">
+    </section>
+    <!--Partie produits-->
+    <section id="products">
+        <a href="produits.html">
+            <div class="products__container">
+                <img class="products__image" src="ressources/images/vcam_1.jpg" alt="Appareil photo Zeiss Ikon">
+                <h3 class="products__title">Zeiss Ikon</h3>
+                <div class="products__infos">
+                    <p class="products__price">699€</p>
+                    <a href="produits.html">
+                        <button class="products__button">Découvrir</button>
+                    </a>
+                </div>
+            </div>
+        </a>
+        <a href="produits.html">
+            <div class="products__container">
+                <img class="products__image" src="ressources/images/vcam_2.jpg" alt="Appareil photo Canon AE-1">
+                <h3 class="products__title">Canon AE-1</h3>
+                <div class="products__infos">
+                    <p class="products__price">299€</p>
+                    <a href="produits.html">
+                        <button class="products__button">Découvrir</button>
+                    </a>
+                </div>
+            </div>
+        </a>
+        <a href="produits.html">
+            <div class="products__container">
+                <img class="products__image" src="ressources/images/vcam_3.jpg" alt="Appareil photo Kodak No.1">
+                <h3 class="products__title">Kodak No.1</h3>
+                <div class="products__infos">
+                    <p class="products__price">149€</p>
+                    <a href="produits.html">
+                        <button class="products__button">Découvrir</button>
+                    </a>
+                </div>
+            </div>
+        </a>
+        <a href="produits.html">
+            <div class="products__container">
+                <img class="products__image" src="ressources/images/vcam_4.jpg" alt="Appareil photo Minolta XG9">
+                <h3 class="products__title">Minolta XG9</h3>
+                <div class="products__infos">
+                    <p class="products__price">349€</p>
+                    <a href="produits.html">
+                        <button class="products__button">Découvrir</button>
+                    </a>
+                </div>
+            </div>
+        </a>
+        <a href="produits.html">
+            <div class="products__container">
+                <img class="products__image" src="ressources/images/vcam_5.jpg" alt="Appareil photo Samsung NX300">
+                <h3 class="products__title">Samsung NX300</h3>
+                <div class="products__infos">
+                    <p class="products__price">499€</p>
+                    <a href="produits.html">
+                        <button class="products__button">Découvrir</button>
+                    </a>
+                </div>
+            </div>
+        </a>
+    </section>
+</main>
+<!--Footer-->
+<footer class="footer">
+    <div class="footer__socials">
+        <a href="index.html"><i class="fab fa-facebook"></i></a>
+        <a href="index.html"><i class="fab fa-instagram"></i></a>
+        <a href="index.html"><i class="fab fa-twitter"></i></a>
+        <a href="index.html"><i class="fab fa-youtube"></i></a>
+    </div>
+    <a href="mailto:oricam@gmail.com" class="footer__contact">Contact</a>
+</footer>
+<script src="https://kit.fontawesome.com/82c91e6d22.js" crossorigin="anonymous"></script>
 </body>
 </html>

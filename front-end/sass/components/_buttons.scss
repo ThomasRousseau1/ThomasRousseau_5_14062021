@@ -1,0 +1,30 @@
+.banner__button { 
+    border-style: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: $colour-tertiary;
+    /*-webkit-box-shadow: 0px 20px 0px -10px #a9a08e, 0px -20px 0px -10px #a9a08e, 20px 0px 0px -10px #a9a08e, -20px 0px 0px -10px #a9a08e, 0px 0px 0px 10px #000, 5px 5px 15px 5px rgba(0,0,0,0); 
+    box-shadow: 0px 18px 0px -10px #a9a08e, 0px -18px 0px -10px #a9a08e, 18px 0px 0px -10px #a9a08e, -18px 0px 0px -10px #a9a08e, 0px 0px 0px 10px #000, 5px 5px 15px 5px rgba(0,0,0,0);*/
+    &:hover { 
+        transition: 300ms;
+        transform: scale(0.95);
+        opacity: 0.9;
+    }
+}
+
+.products__button { 
+    border-style: none;
+    border-radius: 2px;
+    height: 2rem;
+    background-color: $colour-validation;
+    color: $colour-logo;
+    font-size: 1rem;
+    font-weight: bold;      
+    cursor: pointer;
+}
+.products__button:hover { 
+    opacity: 0.8;
+}
