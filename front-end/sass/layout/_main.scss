@@ -222,13 +222,19 @@
     }
 }
 
-.products__button { 
+.order__button { 
     display: block;
     margin: auto;
     margin-top: 2rem;
     height: 3rem; 
     width: 15rem;
     border-radius: 15px;
+    border-style: none;
+    background: $colour-validation;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
 }
 
 //Partie responsive 
