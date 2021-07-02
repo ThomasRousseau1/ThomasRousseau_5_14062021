@@ -230,10 +230,13 @@
     width: 15rem;
     border-radius: 15px;
     border-style: none;
+    font-weight: bold;
+    font-size: 1rem;
     background: $colour-validation;
     cursor: pointer;
+    transition: 300ms;
     &:hover {
-        opacity: 0.8;
+        transform: scale(1.1);
     }
 }
 

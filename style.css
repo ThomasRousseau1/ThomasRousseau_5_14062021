@@ -293,11 +293,14 @@ header i:hover {
   width: 15rem;
   border-radius: 15px;
   border-style: none;
+  font-weight: bold;
+  font-size: 1rem;
   background: #9ACD32;
   cursor: pointer;
+  transition: 300ms;
 }
 .order__button:hover {
-  opacity: 0.8;
+  transform: scale(1.1);
 }
 
 @media screen and (max-width: 1024px) {
