@@ -21,21 +21,21 @@
         <a href="index.html"><h1 class="header__logo">Oricam</h1></a>
         <a href="panier.html"><i class="fas fa-shopping-cart"></i></a>
     </header>
-    <main class="main__product">
+    <main id="containerarticle" class="main__product">
         <!--Partie article-->
-        <article class="article">
-            <img class="article__image" src="ressources/images/vcam_1.jpg">
-            <h2 class="article__title">Zeiss Ikon</h2>
-            <p class="article__description">Fabriqué en <strong>Allemagne</strong> en 1932.<br>Dimensions et poids : 8 x 17.5 x 3.5 cm et 650 g.</p>
-            <div class="article__quantity">
+        <!-- <article class="article">
+            <img class="article__image" src="">
+            <h2 class="article__title"></h2>
+            <p class="article__description"><br></p>
+            <div class="article__quantity"> -->
             <!--Pour les objectifs-->
-            <label for="lens-select">Objectif :</label>
+            <!-- <label for="lens-select">Objectif :</label>
             <select name="lens">
                 <option value="50mm 1.8">50mm 1.8</option>
                 <option value="90mm 2.8">90mm 2.8</option>
-            </select>
+            </select> -->
             <!--Pour la quantité-->
-                <label for="quantity-select">Quantité :</label>
+                <!-- <label for="quantity-select">Quantité :</label>
                 <select>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -49,11 +49,11 @@
                     <option value="10">10</option>
                 </select>
                 <p class="article__price">699€</p>
-            </div>
-            <div class="article__button--container">
+            </div>--> 
+             <div class="article__button--container">
                 <a href="index.html"><button class="products__button">Voir d'autres modèles</button></a>
-                <a><button class="products__button">Ajouter au panier</button></a>
-            </div>
+                <a><button id="btnCart" class="products__button">Ajouter au panier</button></a>
+            </div> 
         </article>
     </main>
 
@@ -67,5 +67,6 @@
         <a href="mailto:oricam@gmail.com" class="footer__contact">Contact</a>
     </footer>
     <script src="https://kit.fontawesome.com/82c91e6d22.js" crossorigin="anonymous"></script>
+    <script src="JS/produits.js"></script>
 </body>
 </html>
