@@ -1,0 +1,34 @@
+.table {
+    margin: auto;
+    background-color: #fff;
+    width: 60rem;
+    padding: 1rem;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    & th {
+        text-align: left;
+    }
+}
+
+.table__tbody {
+    & td {
+        height: 100px;
+        padding: 10px 0px 10px 0px;
+    }
+    & img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    & button {
+        border-style: none;
+        height: 2rem;
+        width: 5rem;
+        background-color: rgb(223, 71, 89);
+        &:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+    }
+}

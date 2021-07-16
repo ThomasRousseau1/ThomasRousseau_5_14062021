@@ -19,7 +19,7 @@
     <!--Header-->
     <header class="header">
         <a href="index.html"><h1 class="header__logo">Oricam</h1></a>
-        <a href="panier.html"><i class="fas fa-shopping-cart"></i></a>
+        <a href="panier.html"><i class="fas fa-shopping-cart"></i><span class="header__span">0</span></i></a>
     </header>
     <main id="containerarticle" class="main__product">
         <!--Partie article-->
@@ -50,13 +50,43 @@
                 </select>
                 <p class="article__price">699€</p>
             </div>--> 
-             <div class="article__button--container">
-                <a href="index.html"><button class="products__button">Voir d'autres modèles</button></a>
-                <a><button id="btnCart" class="products__button">Ajouter au panier</button></a>
-            </div> 
-        </article>
+        <!-- </article>  -->
+        <table class="table">
+            <thead class="table__thead">
+                <tr>
+                    <th></th>
+                    <th>Produit</th>
+                    <th></th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="table__tbody">
+                <tr>
+                    <!-- <td><input class="table__checkbox" type="checkbox"></td>
+                    <td><img class="table__img" src="ressources/images/vcam_1.jpg"></td>
+                    <td><p class="table__name">Camera</p></td>
+                    <td><p class="table__price">499€</p></td>
+                    <td><input type="number" class="num" value="1"></td>
+                    <td class="table__total--price"><p>499€</p></td>
+                    <td><button type="button" class="table__button">Supprimer</button></td> -->
+                </tr>
+            </tbody>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td><img></td>
+                <td><h3><strong>Total</strong></h3></td>
+                <td></td>
+                <td></td>
+                <td class="final__price"><h3><strong>0€</strong></h3></td>
+            </tr>
+        </table>
+        
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer__socials">
             <a href="index.html"><i class="fab fa-facebook"></i></a>

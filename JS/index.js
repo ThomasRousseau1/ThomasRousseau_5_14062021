@@ -38,8 +38,8 @@ function displayArticles(articles) {
             <img id="productImage" class="products__image" src="${article.imageUrl}" alt="Appareil photo Zeiss Ikon">
             <h3 id="productTitle" class="products__title">${article.name}</h3>
             <div class="products__infos">
-                <p id="productPrice" class="products__price">${article.price} €</p>
-                <a href="produits.html?id=${article._id}">
+                <p id="productPrice" class="products__price">${article.price / 100} €</p>
+                <a class="addCart" href="produits.html?id=${article._id}">
                     <button id="productButton" class="products__button">Découvrir</button>
                 </a>
             </div>
