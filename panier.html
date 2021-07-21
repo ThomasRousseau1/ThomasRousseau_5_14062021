@@ -19,12 +19,12 @@
     <!--Header-->
     <header class="header">
         <a href="index.html"><h1 class="header__logo">Oricam</h1></a>
-        <a href="panier.html"><i class="fas fa-shopping-cart"><span class="header__span">0</span></i></a>
+        <a href="panier.html"><i class="fas fa-shopping-cart"></i></a>
     </header>
     <main>
         <div class="checkout__titles">
             <h2>Récapitulatif de votre commande</h2>
-            <h3>Votre panier ne comporte aucun article</h3>
+            <!-- <h3>Votre panier ne comporte aucun article</h3> -->
         </div>
         <table class="table">
             <thead class="table__thead">
@@ -39,15 +39,15 @@
                 </tr>
             </thead>
             <tbody class="table__tbody">
-                <tr>
-                    <!-- <td><input class="table__checkbox" type="checkbox"></td>
+                <!-- <tr>
+                    <td><input class="table__checkbox" type="checkbox"></td>
                     <td><img class="table__img" src="ressources/images/vcam_1.jpg"></td>
                     <td><p class="table__name">Camera</p></td>
                     <td><p class="table__price">499€</p></td>
                     <td><input type="number" class="num" value="1"></td>
                     <td class="table__total--price"><p>499€</p></td>
-                    <td><button type="button" class="table__button">Supprimer</button></td> -->
-                </tr>
+                    <td><button type="button" class="table__button">Supprimer</button></td>
+                </tr> -->
             </tbody>
             <tr>
                 <td><input type="checkbox"></td>
@@ -79,6 +79,7 @@
                 <label for="mail" class="form__label">Mail :</label>
                 <button class="form__button"><i class="fas fa-envelope"></i></button>
                 <input class="form__input" type="text" placeholder="Votre adresse mail">
+                <span id="text"></span>
             </div>
             <div class="form__container"></div>
                 <label for="location" class="form__label">Adresse :</label>

@@ -95,20 +95,13 @@ header .header__logo {
   color: #1a1a1a;
 }
 header i {
-  position: absolute;
+  position: relative;
   font-size: 2.5rem;
   color: #594b20;
 }
 header i:hover {
   transition: 300ms;
   transform: scale(1.1);
-}
-header.header__span {
-  position: relative;
-  right: -17px;
-  top: 3px;
-  color: #fff;
-  font-weight: bold;
 }
 
 .banner {
