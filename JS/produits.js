@@ -7,9 +7,9 @@ async function init() {
     const productService = new ProductService();
 
     let params = new URLSearchParams(window.location.search);
-    let articleId = params.get("id");
+    let productId = params.get("id");
 
-    const retrieveProduct = await productService.getProduct(articleId);
+    const retrieveProduct = await productService.getProduct(productId);
     productService.displayProduct(retrieveProduct);
 
 }

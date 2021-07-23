@@ -4,19 +4,21 @@ export class ProductService {
 
     constructor() {}
 
-    async getProduct(articleId) {
-
+    async getProduct(productId) {
+        // console.log(productId);
         //Récupération de l'id via l'API
-        return fetch(`http://localhost:3000/api/cameras/` + articleId)
+        return fetch(`http://localhost:3000/api/cameras/` + productId)
             .then((data) => {
                 return data.json();
             })
             .then((rawData) => new Product(rawData.id, rawData.name, rawData.description, rawData.imageUrl, rawData.price, rawData.lense))
+            
     }
 
+    
     displayProduct(product) {
-        const containerArticle = document.getElementById('containerarticle');
-        containerArticle.insertAdjacentHTML(
+        const containerProduct = document.getElementById('containerproduct');
+        containerProduct.insertAdjacentHTML(
             "beforeend",
             `
             <article class="article">
@@ -35,8 +37,47 @@ export class ProductService {
         </div> 
         </article>`
         );
-    }
 
+        console.log(product.id);
+        console.log(product.lense);
+        console.log(product.name);
+        console.log(product.price / 100);
+        console.log(product.description);
+
+        //Séléction du bouton Ajouter au panier
+        const addToCartBtn = document.getElementById('btnCart'); 
+
+        //Ecouteur d'évenement sur le bouton
+        addToCartBtn.addEventListener('click', (event) => {
+            event.preventDefault();//pour ne pas réactualiser la page au click 
+
+        //Récupération des valeurs du formulaire 
+        let productOptions = 
+            {
+                name: product.name, 
+                id: product._id,
+                price: product.price / 100,
+            };
+
+        let localStorageProduct = JSON.parse(localStorage.getItem('product'));
+
+        const addProductInLocalStorage = () => {
+            localStorageProduct.push(productOptions);
+            localStorage.setItem("produit", JSON.stringify(localStorageProduct));
+        };
+
+        if(localStorageProduct) {
+            addProductInLocalStorage();
+            console.log(localStorageProduct);
+
+        } else {
+        localStorageProduct = [];
+        addProductInLocalStorage();
+        console.log(localStorageProduct);
+
+        }
+        });
+    }
 }
 
 // .then((article) => {
