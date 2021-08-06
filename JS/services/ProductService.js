@@ -9,13 +9,13 @@ export class ProductService {
         //Récupération de l'id via l'API
         return fetch(`http://localhost:3000/api/cameras/` + productId)
             .then((data) => {
-                return data.json();
+                return data.json(); 
             })
-            .then((rawData) => new Product(rawData.id, rawData.name, rawData.description, rawData.imageUrl, rawData.price, rawData.lense))
+            .then((rawData) => new Product(rawData._id, rawData.name, rawData.description, rawData.imageUrl, rawData.price, rawData.lenses))
             
     }
 
-    
+
     displayProduct(product) {
         const containerProduct = document.getElementById('containerproduct');
         containerProduct.insertAdjacentHTML(
@@ -33,53 +33,58 @@ export class ProductService {
             </div>
             <div class="button__container">
             <a href="index.html"><button class="products__button">Voir d'autres modèles</button></a>
-            <a class="addCart""><button id="btnCart" class="products__button" href="panier.html">Ajouter au panier</button></a>
+            <a class="addCart" href="panier.html"><button id="btnCart" class="products__button" href="panier.html">Ajouter au panier</button></a>
         </div> 
         </article>`
         );
+        
+        //Pour la sélection des objectifs
+        const lenses = product.lenses;
+        lenses.forEach(function (lens) {
+        const objectif = document.getElementById('objectif');
+        objectif.insertAdjacentHTML("beforeend", `<option>${lens}</option>`);
+        });
 
-        console.log(product.id);
-        console.log(product.lense);
-        console.log(product.name);
-        console.log(product.price / 100);
-        console.log(product.description);
 
-        //Séléction du bouton Ajouter au panier
-        const addToCartBtn = document.getElementById('btnCart'); 
-
-        //Ecouteur d'évenement sur le bouton
-        addToCartBtn.addEventListener('click', (event) => {
-            event.preventDefault();//pour ne pas réactualiser la page au click 
-
-        //Récupération des valeurs du formulaire 
+        //On écoute le bouton ajouter au panier au click
+        let addToCartBtn = document.getElementById('btnCart');
+        // console.log(addToCartBtn);
+            // addToCartBtn.addEventListener('click', addToCart);
+            addToCartBtn.addEventListener('click', (event) => {
+        
+        /*************************************************LOCAL STORAGE****************************************/
+        //Création d'un tableau contenant les infos d'un article
         let productOptions = 
             {
-                name: product.name, 
-                id: product._id,
+                image: product.image,
+                name: product.name,
+                id: product.id,
                 price: product.price / 100,
             };
+            
+        let localStorageProduct = JSON.parse(localStorage.getItem("product"));
 
-        let localStorageProduct = JSON.parse(localStorage.getItem('product'));
-
-        const addProductInLocalStorage = () => {
+        //Pour ajouter un produit séléctionné dans le localStorage
+        const addLocalStorage = () => {
+            //Ajout dans le tableau de l'objet avec les valeurs choisies par l'utilisateur
             localStorageProduct.push(productOptions);
-            localStorage.setItem("produit", JSON.stringify(localStorageProduct));
+            //Transformation en format JSON et envoyer dans la key article du localStorage
+            localStorage.setItem("product", JSON.stringify(localStorageProduct));
         };
-
-        if(localStorageProduct) {
-            addProductInLocalStorage();
+        
+        //Si il y a déjà un produit dans le localStorage
+        if(localStorageProduct){
+            addLocalStorage();
             console.log(localStorageProduct);
-
+        //Si il n'y a pas de produit dans le localStorage
         } else {
-        localStorageProduct = [];
-        addProductInLocalStorage();
-        console.log(localStorageProduct);
-
+            localStorageProduct = [];
+            addLocalStorage();
+            console.log(localStorageProduct);
         }
         });
     }
 }
-
 // .then((article) => {
 //     displayArticle(article);
 // })

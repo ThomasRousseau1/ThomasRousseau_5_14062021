@@ -6,11 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass": "sass sass/style.scss style.css",
-    "sass:watch": "sass sass/style.scss style.css --watch" 
+    "sass:watch": "sass sass/style.scss style.css --watch"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "karma": "^6.3.4",
     "sass": "^1.34.1"
   }
 }

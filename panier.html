@@ -24,7 +24,6 @@
     <main>
         <div class="checkout__titles">
             <h2>Récapitulatif de votre commande</h2>
-            <!-- <h3>Votre panier ne comporte aucun article</h3> -->
         </div>
         <table class="table">
             <thead class="table__thead">
@@ -33,66 +32,55 @@
                     <th>Produit</th>
                     <th></th>
                     <th>Prix</th>
-                    <th>Quantité</th>
-                    <th>Total</th>
+
                     <th></th>
                 </tr>
             </thead>
-            <tbody class="table__tbody">
-                <!-- <tr>
-                    <td><input class="table__checkbox" type="checkbox"></td>
-                    <td><img class="table__img" src="ressources/images/vcam_1.jpg"></td>
-                    <td><p class="table__name">Camera</p></td>
-                    <td><p class="table__price">499€</p></td>
-                    <td><input type="number" class="num" value="1"></td>
-                    <td class="table__total--price"><p>499€</p></td>
-                    <td><button type="button" class="table__button">Supprimer</button></td>
-                </tr> -->
+            <tbody class="table__tbody" id="table__container">
             </tbody>
-            <tr>
-                <td><input type="checkbox"></td>
-                <td><img></td>
-                <td><h3><strong>Total</strong></h3></td>
-                <td></td>
-                <td></td>
-                <td class="final__price"><h3><strong>0€</strong></h3></td>
-            </tr>
         </table>
         <div class="checkout__buttons"> 
-            <button class="checkout__button" type="button">Vider le panier</button>
-            <a href="index.html"><button class="checkout__button" type="button">Continuer les achats</button></a>
+            <!-- <button class="checkout__button" type="button">Vider le panier</button> -->
+            <button class="checkout__button" type="button"><a href="index.html">Continuer les achats</a></button>
         </div>
         <!--Formulaire-->
-        <form class="form">
+        <div id="form-container">
+        <!-- <form action="" method="POST" class="form">
             <h3>Vos coordonnées</h3>
             <div class="form__container">
-                <label for="name" class ="form__label">Nom :</label>
+                <label for="surname" class ="form__label">Nom :</label>
                 <button class="form__button"><i class="fas fa-user"></i></button>
-                <input class="form__input" type="text" placeholder="Votre nom">
+                <input id="surname" class="form__input" type="text" placeholder="Votre nom">
+                <small></small>
             </div>
-            <div class="form__container"></div>
+            <div class="form__container">
                 <label for="name" class="form__label">Prénom :</label>
                 <button class="form__button"><i class="fas fa-user"></i></button>
-                <input class="form__input" type="text" placeholder="Votre prénom">
+                <input id="name" class="form__input" type="text" placeholder="Votre prénom">
+                <small></small>
             </div>
-            <div class="form__container"></div>
+            <div class="form__container">
                 <label for="mail" class="form__label">Mail :</label>
                 <button class="form__button"><i class="fas fa-envelope"></i></button>
-                <input class="form__input" type="text" placeholder="Votre adresse mail">
+                <input id="mail" class="form__input" type="text" placeholder="Votre adresse mail">
                 <span id="text"></span>
+                <small></small>
             </div>
-            <div class="form__container"></div>
+            <div class="form__container">
                 <label for="location" class="form__label">Adresse :</label>
                 <button class="form__button"><i class="fas fa-home"></i></button>
-                <input class="form__input" type="text" placeholder="Votre adresse postale">
+                <input id="location" class="form__input" type="text" placeholder="Votre adresse postale">
+                <small></small>
             </div>
-            <div class="form__container"></div>
+            <div class="form__container">
                 <label for="city" class="form__label">Ville :</label>
                 <button class="form__button"><i class="fas fa-home"></i></button>
-                <input class="form__input" type="text" placeholder="Votre ville">
+                <input id="city" class="form__input" type="text" placeholder="Votre ville">
+                <small></small>
             </div>
-        </form>
-        <a href="confirmation.html"><button class="order__button" type="button">Confirmer votre commande</button></a>
+        </form> -->
+    </div>
+        <a><button class="order__button" type="button">Confirmer votre commande</button></a>
     </main>
     <footer class="footer">
         <div class="footer__socials">
@@ -104,6 +92,7 @@
         <a href="mailto:oricam@gmail.com" class="footer__contact">Contact</a>
     </footer>
     <script src="https://kit.fontawesome.com/82c91e6d22.js" crossorigin="anonymous"></script>
-    <script src="JS/panier.js"></script>
+
+    <script type="module" src="JS/panier.js"></script>
 </body>
 </html>

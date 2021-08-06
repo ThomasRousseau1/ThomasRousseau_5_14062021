@@ -32,3 +32,41 @@
         }
     }
 }
+
+.container-empty-cart {
+    display: block;
+    align-items: center;
+    font-size: 2rem;
+    & i {
+       color: darken($colour-secondary, 15);
+    }
+}
+
+//Pour les icônes du formulaire si la personne n'a pas rentrée les bonnes infos
+.missing-firstname, .missing-lastname, .missing-address, .missing-city, .missing-email {
+    height: 2.6rem;
+    position: relative;
+    right: 2.5rem;
+    top: 5px;
+    
+}
+
+#form-success {
+    font-size: 1.5rem;
+    text-align: center;
+    color: $colour-validation;
+    animation: fadein 800ms ease-in-out;
+}
+
+#form-warning {
+    font-size: 1.5rem;
+    text-align: center;
+    color: rgb(223, 71, 89);
+    animation: fadein 800ms ease-in-out;
+}
+
+@keyframes fadein { 
+    0% {opacity: 0;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}

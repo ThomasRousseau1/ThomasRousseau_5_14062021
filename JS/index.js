@@ -35,7 +35,7 @@ function displayProducts(products) {
             "beforeend",
             `<section id="products">
             <article id="productContainer" class="products__container">
-            <img id="productImage" class="products__image" src="${product.imageUrl}" alt="Appareil photo Zeiss Ikon">
+            <img id="productImage" class="products__image" src="${product.imageUrl}" alt="Appareil photo vintage">
             <h3 id="productTitle" class="products__title">${product.name}</h3>
             <div class="products__infos">
                 <p id="productPrice" class="products__price">${product.price / 100} €</p>
