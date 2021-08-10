@@ -5,14 +5,12 @@ export class ProductService {
     constructor() {}
 
     async getProduct(productId) {
-        // console.log(productId);
         //Récupération de l'id via l'API
         return fetch(`http://localhost:3000/api/cameras/` + productId)
             .then((data) => {
                 return data.json(); 
             })
             .then((rawData) => new Product(rawData._id, rawData.name, rawData.description, rawData.imageUrl, rawData.price, rawData.lenses))
-            
     }
 
 
@@ -48,8 +46,6 @@ export class ProductService {
 
         //On écoute le bouton ajouter au panier au click
         let addToCartBtn = document.getElementById('btnCart');
-        // console.log(addToCartBtn);
-            // addToCartBtn.addEventListener('click', addToCart);
             addToCartBtn.addEventListener('click', (event) => {
         
         /*************************************************LOCAL STORAGE****************************************/
@@ -75,19 +71,11 @@ export class ProductService {
         //Si il y a déjà un produit dans le localStorage
         if(localStorageProduct){
             addLocalStorage();
-            console.log(localStorageProduct);
         //Si il n'y a pas de produit dans le localStorage
         } else {
             localStorageProduct = [];
             addLocalStorage();
-            console.log(localStorageProduct);
         }
         });
     }
 }
-// .then((article) => {
-//     displayArticle(article);
-// })
-//     .catch((error) => {
-//         console.log(error);
-//     });

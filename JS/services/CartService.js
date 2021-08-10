@@ -1,25 +1,20 @@
 /****************************************Récupération des articles************************************/
 import {Cart} from "../models/Cart.js";
 
-
 const LOCAL_STORAGE_KEY = "product";
+let localStorageProduct = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
 
 export class CartService {
     constructor() {}
 
     getCart() {
-        const products = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+        const products = localStorageProduct;
         return new Cart(products);
     }
 
 
     displayCart(cart) {
-        // console.log(cart.products);
-        let localStorageProduct = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-        let itemRow = document.getElementById("productRow");
         const tableContainer = document.getElementById('table__container');
-        // tableContainer.innerHTML = '';
-        const mainContainer = document.getElementsByTagName("tbody")[0];
 
         for (const product of cart.products) {
             let productsInCartContainer = document.createElement('tr');
@@ -38,11 +33,7 @@ export class CartService {
     }
 
     deleteItem(id) {
-        let localStorageProduct = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-        // console.log(localStorageProduct);
         let deleteBtn = document.querySelectorAll("[id^='deletebutton_']");
-        // console.log(deleteBtn);
-
         deleteBtn.forEach((buttonObject) => {
             buttonObject.addEventListener("click", (event) => {
                 event.preventDefault();
@@ -66,23 +57,17 @@ export class CartService {
 
 
     updateTotal() {
-        let localStorageProduct = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
         let totalPrice = [];
 
         for (let m = 0; m < localStorageProduct.length; m++) {
             let productPriceInCart = localStorageProduct[m].price;
 
             totalPrice.push(productPriceInCart)
-            // console.log(totalPrice);
         }
-
         
-
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
         const finalPrice = totalPrice.reduce(reducer, 0);
-
         const tableContainer = document.getElementById('table__container');
-        let productsInCartContainer = document.getElementsByTagName("tr");
 
         let displayTotalPrice = document.createElement("tr");
         displayTotalPrice.innerHTML =
@@ -105,12 +90,13 @@ export class CartService {
             `;
             mainContainer.innerHTML = emptyCart;
         }
+        console.log(finalPrice);
+        const localStorageFinalPrice = localStorage.setItem("finalPrice", finalPrice);
 
     }
 
 
     displayForm() {
-        let localStorageProduct = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
         const formContainer = document.querySelector("#form-container");
 
         formContainer.innerHTML = `
@@ -170,18 +156,16 @@ export class CartService {
         }
         //RegExp pour prénom, nom et ville
         const regExpNamesCity = (value) => {
-            return  /^[A-Za-z]{3,20}$/.test(value)
+            return  /^([A-Za-z]{3,20}\-{0,1})?([A-Za-z]{3,20})$/.test(value);
         };
-        //RegExp pour l'adresse
+
         const regExpAddress = (value) => {
             return /^[0-9]{1}[A-Za-z\s-]{3,30}$/.test(value);
         };
 
-        //RegExp pour l'adresse email 
         const regExpEmail = (value) => {
             return /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$/.test(value);
         }
-
 
 
         function firstNameCheck() {
@@ -246,8 +230,6 @@ export class CartService {
                     };
                     }
 
-        /**************************Fin Validation formulaire***************/
-
         //Contrôle de la validité du form avant envoi dans le localStorage
         if(firstNameCheck() && lastNameCheck() && addressCheck() && cityCheck() && emailCheck()){
             //Mettre l'objet formValues dans le localStorage
@@ -255,14 +237,38 @@ export class CartService {
         } else {
             alert("Veuillez remplir correctement le formulaire");
         }
+        /**************************Fin Validation formulaire***************/
 
-        const toSend = {
-            localStorageProduct,
-            formValues
+
+        
+        /**************************Envoi des données au serveur******************/
+        function sendData() {
+            const toSend = {
+                products: localStorageProduct.map((product) => product.id),
+                contact: formValues
+            }
+    
+                //Envoi des données toSend au serveur
+                const promise = fetch("http://localhost:3000/api/cameras/order", {
+                    method: "POST",
+                    body: JSON.stringify(toSend),
+                    headers: {"Content-Type" : "application/json"},
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                const localStorageFinalPrice = JSON.parse(localStorage.getItem("finalPrice"));
+                console.log(localStorageFinalPrice);
+                window.location.href = "confirmation.html?orderId=" + data.orderId;
+                })
+                .catch(function(error) {
+                    alert(error);
+                })
+                console.log(promise);
         }
-        console.log(localStorageProduct);
-        console.log(toSend);
+
+        sendData() 
         });
+
 
 
         //Mettre le contenu du localStorage dans les champs du form pour le garder en mémoire
@@ -279,178 +285,4 @@ export class CartService {
             document.getElementById("email").value = dataLocalStorageObject.email;
         }
     };
-
 }
-
-
-
-
-
-
-
-
-// //*****************Formulaire****************//
-// let form = document.querySelector(".form");
-// // console.log(form.surname);
-
-// //Ecoute de la modification du nom
-// form.surname.addEventListener('change', function() {
-//     validSurname(this);
-// });
-
-// //Ecoute de la modification du prénom
-// // form.name.addEventListener('change', function() {
-// //     validName(this);
-// // });
-
-// //Ecoute de la modification du mail
-// form.mail.addEventListener('change', function() {
-//     validMail(this);
-// });
-
-// //Ecoute de la modification de l'adresse
-// form.location.addEventListener('change', function() {
-//     validLocation(this);
-// });
-
-// //Ecoute de la modification de la ville
-// form.city.addEventListener('change', function() {
-//     validCity(this);
-// });
-
-
-
-
-
-// /********************Validation Nom*******************/
-// const validSurname = function(inputSurname) {
-//     let surnameRegExp = new RegExp(
-//         '/[a-zA-Z]/'
-//     );
-
-//     let small = inputSurname.nextElementSibling;
-
-//     if(surnameRegExp.test!=(inputSurname.value)){
-//         small.innerHTML = "Nom invalide.";
-//         small.setAttribute("style", "color:red");
-//     } 
-
-// }
-
-
-// /*********************Validation mail*******************/
-// const validMail = function(inputMail) {
-//     let mailRegExp = new RegExp(
-//         '^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$', 'g'    
-//     );
-
-//     //Récupération de la balise small
-//     let small = inputMail.nextElementSibling;
-
-
-//     if(mailRegExp.test(inputMail.value)){
-//         small.innerHTML = "Adresse mail valide";
-//         small.setAttribute("style", "color:green");
-//     } else {
-//         small.innerHTML = "Adresse mail invalide";
-//         small.setAttribute("style", "color:red");
-//     }
-// }
-
-// /******************Validation adresse postale***********/
-
-// const validLocation = function(inputLocation) {
-//     let locationRegExp = new RegExp(
-//         '/[0-9] [a-z]/'
-//     );
-
-//     //Récupération de la balise small
-//     let small = inputLocation.nextElementSibling;
-
-//     if(locationRegExp.test(inputLocation.value)){
-//         small.innerHTML = "Adresse postale valide";
-//         small.setAttribute("style", "color:green");
-//     } else {
-//         small.innerHTML = "Adresse postale invalide";
-//         small.setAttribute("style", "color:red");
-//     }
-// }
-
-// /******************Validation ville**********/
-
-// const validCity = function(inputCity) {
-//     let cityRegExp = new RegExp(
-//         '/^[A-Za-z]/gm'
-//     );
-
-//     //Récupération de la balise small
-//     let small = inputCity.nextElementSibling;
-
-//     if(cityRegExp.test(inputCity.value)){
-//         small.innerHTML = "ok";
-//         small.setAttribute("style", "color:green");
-//     } else {
-//         small.innerHTML = "Nom de ville invalide";
-//         small.setAttribute("style", "color:red");
-//     }
-// }
-
-
-
-
-//Vérifie que toutes les conditions soient remplies avant envoi au serveur
-// if (
-//     surnameRegExp.test == inputSurname.value &&
-//     nameRegExp.test == inputName.value &&
-//     mailRegExp.test == inputMail.value &&
-//     locationRegExp.test == inputLocation.value &&
-//     cityRegExp.test == inputCity 
-
-// ) {
-// let contact = {
-//     firstName: inputSurname.value, 
-//     lastName: inputName.value,
-//     address: inputLocation.value,
-//     city: inputCity.value,
-//     email: inputMail.value
-// }
-// };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let cartStructure = []; 
-// let productContainer = document.createElement("tr");
-
-// for (k = 0; k < localStorageProduct.length; k++) {
-//     console.log("J'ai " + localStorageProduct.length + " article(s) dans le panier");
-//     cartStructure = cartStructure + productContainer +`
-//             <td><input class="table__checkbox" type="checkbox"></td>
-//         <td><img class="table__img" src="${localStorageProduct[k].product.image}"></td>
-//         <td><p class="table__name">${localStorageProduct[k].product.name}</p></td>
-//         <td><p class="table__price">${localStorageProduct[k].product.price / 100} €</p></td>
-//         <td><input type="number" class="num" value="1"></td>
-//         <td class="table__total--price"><p>${localStorageProduct[k].product.price / 100} €</p></td>
-//         <td><button type="button" class="table__button">Supprimer</button></td>
-//     `;
-// }
-//     if (k == localStorageProduct.length) {
-//         productContainer.innerHTML = cartStructure;
-//     }
-
-/********************************FORMULAIRE******************************/
-
-//Pour que l'utilisateur entre une adresse mail valide

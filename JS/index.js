@@ -1,13 +1,9 @@
-// //xmlhttprequest, récupérer l'objet au chargement, créer boucle for of et recréer chaque élément à la place du html
-
-
 ////////////////////////////////Pour récupérer les élements au chargement\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 (async function() {
     const products = await getProducts();
 
     displayProducts(products);
 })();
-
 
 //////////////////////Appel de l'API et déclaration de la fonction getProducts pour récupérer les produits\\\\\\\\\\\\\\\\\\\\\\\\\
 function getProducts() {
@@ -30,7 +26,6 @@ function getProducts() {
 function displayProducts(products) {
     products.forEach(function(product) {
         const container = document.getElementById("products");
-        //innerHTML
         container.insertAdjacentHTML(
             "beforeend",
             `<section id="products">
@@ -46,7 +41,5 @@ function displayProducts(products) {
             </article>
             </section>`
         );
-        //document.createElement et appendChild
-        // console.log(product);
     });
 }
