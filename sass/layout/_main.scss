@@ -173,21 +173,8 @@
 .checkout__buttons { 
     text-align: center;
     margin-bottom: 2rem;
-    .checkout__button {
-        background-color: transparent;
-        font-weight: bold;
-        border: 2px solid #000;
-        height: 3rem;
-        width: 10rem;
-        margin: 1rem;
-        cursor: pointer;
-        transition: 300ms;
-        &:hover { 
-            color: $colour-validation;
-            border: 2px solid $colour-validation;
-        }
-    }
 }
+
 .form {
     background-color: #fff;
     width: 40%;

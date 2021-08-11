@@ -5,6 +5,7 @@
     padding: 1rem;
     border-radius: 15px;
     margin-bottom: 1rem;
+    width: 90vw;
     & th {
         text-align: left;
     }
@@ -15,9 +16,12 @@
         height: 100px;
         padding: 10px 0px 10px 0px;
     }
+    & .table__name {
+        font-weight: bold;
+    }
     & img {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         object-fit: cover;
         border-radius: 50%;
     }
