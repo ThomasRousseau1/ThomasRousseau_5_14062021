@@ -97,44 +97,6 @@ export class CartService {
 
 
     displayForm() {
-        const formContainer = document.querySelector("#form-container");
-
-        formContainer.innerHTML = `
-        <form action="" method="POST" class="form">
-            <h3>Vos coordonnées</h3>
-            <div class="form__container">
-                <label for="firstName" class ="form__label">Prénom :</label>
-                <button class="form__button"><i class="fas fa-user"></i></button>
-                <input id="firstName" class="form__input" type="text" placeholder="Votre prénom">
-                <span class="missing-firstname"></span>
-            </div>
-            <div class="form__container">
-                <label for="lastName" class="form__label">Nom :</label>
-                <button class="form__button"><i class="fas fa-user"></i></button>
-                <input id="lastName" class="form__input" type="text" placeholder="Votre nom">
-                <span class="missing-lastname"></span>
-            </div>
-            <div class="form__container">
-            <label for="address" class="form__label">Adresse :</label>
-            <button class="form__button"><i class="fas fa-home"></i></button>
-            <input id="address" class="form__input" type="text" placeholder="Votre adresse postale">
-            <span class="missing-address"></span>
-        </div>
-        <div class="form__container">
-            <label for="city" class="form__label">Ville :</label>
-            <button class="form__button"><i class="fas fa-home"></i></button>
-            <input id="city" class="form__input" type="text" placeholder="Votre ville">
-            <span class="missing-city"></span>
-        </div>
-            <div class="form__container">
-                <label for="email" class="form__label">email :</label>
-                <button class="form__button"><i class="fas fa-envelope"></i></button>
-                <input id="email" class="form__input" type="text" placeholder="Votre adresse email">
-                <span id="text"></span>
-                <span class="missing-email"></span>
-            </div>
-        </form>
-        `;
 
         const sendFormBtn = document.querySelector(".order__button");
         sendFormBtn.addEventListener("click", (e) => {
@@ -160,7 +122,7 @@ export class CartService {
         };
 
         const regExpAddress = (value) => {
-            return /^[0-9]{1}[A-Za-z\s-]{3,30}$/.test(value);
+            return /^[0-9]{1,4}[A-Za-z\s-]{3,30}$/.test(value);
         };
 
         const regExpEmail = (value) => {
@@ -172,10 +134,10 @@ export class CartService {
         //Prénom validation
         const firstNameValidation = formValues.firstName;
         if (regExpNamesCity(firstNameValidation)) {
-            document.querySelector(".missing-firstname").innerHTML = '<i class="fas fa-check-circle" id="form-success"></i>';
+            document.getElementById("missing-firstname").innerHTML = '<i class="fas fa-check-circle" id="form-success"></i>';
             return true;
         } else {
-            document.querySelector(".missing-firstname").innerHTML = '<i class="fas fa-times-circle" id="form-warning"></i>';
+            document.getElementById("missing-firstname").innerHTML = '<i class="fas fa-times-circle" id="form-warning"></i>';
             alert(textAlert("Prénom"));
             return false;
         };
@@ -185,10 +147,10 @@ export class CartService {
         function lastNameCheck() {
             const lastNameValidation = formValues.lastName;
             if (regExpNamesCity(lastNameValidation)) {
-                document.querySelector(".missing-lastname").innerHTML = '<i class="fas fa-check-circle" id="form-success"></i>';
+                document.getElementById("missing-lastname").innerHTML = '<i class="fas fa-check-circle" id="form-success"></i>';
                 return true;
             } else {
-                document.querySelector(".missing-lastname").innerHTML = '<i class="fas fa-times-circle" id="form-warning"></i>';
+                document.getElementById("missing-lastname").innerHTML = '<i class="fas fa-times-circle" id="form-warning"></i>';
                 alert(textAlert("Nom"));
                 return false;
             };
@@ -197,11 +159,11 @@ export class CartService {
             function addressCheck() {
                 const addressValidation = formValues.address;
                 if (regExpAddress(addressValidation)) {
-                    document.querySelector(".missing-address").innerHTML = '<i class="fas fa-check-circle" id="form-success"></i>';
+                    document.getElementById("missing-address").innerHTML = '<i class="fas fa-check-circle" id="form-success"></i>';
                     return true;
                 } else {
-                    document.querySelector(".missing-address").innerHTML = '<i class="fas fa-times-circle" id="form-warning"></i>';
-                    alert("L'adresse doit comporter un chiffre puis des lettres.");
+                    document.getElementById("missing-address").innerHTML = '<i class="fas fa-times-circle" id="form-warning"></i>';
+                    alert("L'adresse doit comporter un à quatre chiffres puis des lettres.");
                     return false;
                 };
                 }
@@ -209,10 +171,10 @@ export class CartService {
                 function cityCheck() {
                     const cityValidation = formValues.city;
                     if (regExpNamesCity(cityValidation)) {
-                        document.querySelector(".missing-city").innerHTML = '<i class="fas fa-check-circle" id="form-success"></i>';
+                        document.getElementById("missing-city").innerHTML = '<i class="fas fa-check-circle" id="form-success"></i>';
                         return true;
                     } else {
-                        document.querySelector(".missing-city").innerHTML = '<i class="fas fa-times-circle" id="form-warning"></i>';
+                        document.getElementById("missing-city").innerHTML = '<i class="fas fa-times-circle" id="form-warning"></i>';
                         alert("L'adresse doit comporter un chiffre puis des lettres.");
                         return false;
                     };
@@ -221,10 +183,10 @@ export class CartService {
                 function emailCheck() {
                     const emailValidation = formValues.email;
                     if (regExpEmail(emailValidation)) {
-                        document.querySelector(".missing-email").innerHTML = '<i class="fas fa-check-circle" id="form-success"></i>';
+                        document.getElementById("missing-email").innerHTML = '<i class="fas fa-check-circle" id="form-success"></i>';
                         return true;
                     } else {
-                        document.querySelector(".missing-email").innerHTML = '<i class="fas fa-times-circle" id="form-warning"></i>';
+                        document.getElementById("missing-email").innerHTML = '<i class="fas fa-times-circle" id="form-warning"></i>';
                         alert("L'adresse mail n'est pas conforme. Suivez l'exemple : toto123@gmail.com");
                         return false;
                     };
@@ -236,6 +198,7 @@ export class CartService {
             localStorage.setItem("formValues", JSON.stringify(formValues));
         } else {
             alert("Veuillez remplir correctement le formulaire");
+            return false;
         }
         /**************************Fin Validation formulaire***************/
 
