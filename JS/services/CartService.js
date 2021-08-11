@@ -247,7 +247,7 @@ export class CartService {
                 products: localStorageProduct.map((product) => product.id),
                 contact: formValues
             }
-    
+
                 //Envoi des données toSend au serveur
                 const promise = fetch("http://localhost:3000/api/cameras/order", {
                     method: "POST",
@@ -256,8 +256,7 @@ export class CartService {
                 })
                 .then((response) => response.json())
                 .then((data) => {
-                const localStorageFinalPrice = JSON.parse(localStorage.getItem("finalPrice"));
-                console.log(localStorageFinalPrice);
+                const localStorageFinalPrice = JSON.parse(localStorage.getItem("finalPrice"));S
                 window.location.href = "confirmation.html?orderId=" + data.orderId;
                 })
                 .catch(function(error) {
@@ -268,7 +267,6 @@ export class CartService {
 
         sendData() 
         });
-
 
 
         //Mettre le contenu du localStorage dans les champs du form pour le garder en mémoire
