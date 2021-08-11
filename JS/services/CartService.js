@@ -256,13 +256,18 @@ export class CartService {
                 })
                 .then((response) => response.json())
                 .then((data) => {
-                const localStorageFinalPrice = JSON.parse(localStorage.getItem("finalPrice"));S
+                const localStorageFinalPrice = JSON.parse(localStorage.getItem("finalPrice"));
                 window.location.href = "confirmation.html?orderId=" + data.orderId;
+
+                //Condition pour empecher le déclenchement de la commande si le panier est vide
+                if(localStorageProduct == 0) {
+                    window.location.href = "panier.html";
+                }
                 })
                 .catch(function(error) {
                     alert(error);
                 })
-                console.log(promise);
+
         }
 
         sendData() 
