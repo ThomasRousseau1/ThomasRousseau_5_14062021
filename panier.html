@@ -1,98 +1,117 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <title>Mon Panier</title>
-    <meta name="title" content="Oricam">
-    <meta name="description" content="Oricam est le site de vente de caméras et d'appareils photos vintage par excellence. Nos produits sont révisés et garantis pour votre tranquillité. Votre satisfaction est notre priorité.">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
-    <!--Fonts-->
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
-    <!--Favicon-->
-    <link rel="apple-touch-icon" sizes="180x180" href="ressources/images/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="ressources/images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="ressources/images/favicon/favicon-16x16.png">
-</head>
-<body>
-    <!--Header-->
-    <header class="header">
-        <a href="index.html"><h1 class="header__logo">Oricam</h1></a>
-        <a href="panier.html"><i class="fas fa-shopping-cart"></i></a>
-    </header>
-    <main>
-        <div class="checkout__titles">
+   <head>
+      <title>Mon Panier</title>
+      <meta name="title" content="Oricam">
+      <meta name="description" content="Oricam est le site de vente de caméras et d'appareils photos vintage par excellence. Nos produits sont révisés et garantis pour votre tranquillité. Votre satisfaction est notre priorité.">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="style.css" rel="stylesheet">
+      <!--Fonts-->
+      <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+      <!--Favicon-->
+      <link rel="apple-touch-icon" sizes="180x180" href="ressources/images/favicon/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="ressources/images/favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="ressources/images/favicon/favicon-16x16.png">
+   </head>
+   <body>
+      <!--Header-->
+      <header class="header">
+         <a href="index.html">
+            <h1 class="header__logo">Oricam</h1>
+         </a>
+         <a href="panier.html">
+         <i class="fas fa-shopping-cart"></i>
+         </a>
+      </header>
+      <main>
+         <div class="checkout__titles">
             <h2>Récapitulatif de votre commande</h2>
-        </div>
-        <table class="table">
+         </div>
+         <table class="table">
             <thead class="table__thead">
-                <tr>
-                    <th></th>
-                    <th>Produit</th>
-                    <th></th>
-                    <th>Prix</th>
-
-                    <th></th>
-                </tr>
+               <tr>
+                  <th></th>
+                  <th>Produit</th>
+                  <th></th>
+                  <th>Prix</th>
+                  <th></th>
+               </tr>
             </thead>
-            <tbody class="table__tbody" id="table__container">
-            </tbody>
-        </table>
-        <div class="checkout__buttons"> 
-            <!-- <button class="checkout__button" type="button">Vider le panier</button> -->
-            <button class="checkout__button" type="button"><a href="index.html">Continuer les achats</a></button>
-        </div>
-        <!--Formulaire-->
-        <div id="form-container">
-            <form action="" method="POST" class="form">
-                <h3>Vos coordonnées</h3>
-                <div class="form__container">
-                    <label for="firstName" class ="form__label">Prénom :</label>
-                    <button class="form__button"><i class="fas fa-user"></i></button>
-                    <input id="firstName" class="form__input" type="text" placeholder="Votre prénom">
-                    <span id="missing-firstname"></span>
-                </div>
-                <div class="form__container">
-                    <label for="lastName" class="form__label">Nom :</label>
-                    <button class="form__button"><i class="fas fa-user"></i></button>
-                    <input id="lastName" class="form__input" type="text" placeholder="Votre nom">
-                    <span id="missing-lastname"></span>
-                </div>
-                <div class="form__container">
-                <label for="address" class="form__label">Adresse :</label>
-                <button class="form__button"><i class="fas fa-home"></i></button>
-                <input id="address" class="form__input" type="text" placeholder="Votre adresse postale">
-                <span id="missing-address"></span>
-            </div>
-            <div class="form__container">
-                <label for="city" class="form__label">Ville :</label>
-                <button class="form__button"><i class="fas fa-home"></i></button>
-                <input id="city" class="form__input" type="text" placeholder="Votre ville">
-                <span id="missing-city"></span>
-            </div>
-                <div class="form__container">
-                    <label for="email" class="form__label">email :</label>
-                    <button class="form__button"><i class="fas fa-envelope"></i></button>
-                    <input id="email" class="form__input" type="text" placeholder="Votre adresse email">
-                    <span id="text"></span>
-                    <span id="missing-email"></span>
-                </div>
+            <tbody class="table__tbody" id="table__container"></tbody>
+         </table>
+         <div class="checkout__buttons">
+            <a class="checkout__button" href="index.html">Continuer les achats</a>
+         </div>
+         <!--Formulaire-->
+         <div id="form-container">
+            <form method="POST" class="form">
+               <h3>Vos coordonnées</h3>
+               <div class="form__container">
+                  <label for="firstName" class="form__label">Prénom :</label>
+                  <button class="form__button">
+                  <i class="fas fa-user"></i>
+                  </button>
+                  <input id="firstName" class="form__input" type="text" placeholder="Votre prénom">
+                  <span id="missing-firstname"></span>
+               </div>
+               <div class="form__container">
+                  <label for="lastName" class="form__label">Nom :</label>
+                  <button class="form__button">
+                  <i class="fas fa-user"></i>
+                  </button>
+                  <input id="lastName" class="form__input" type="text" placeholder="Votre nom">
+                  <span id="missing-lastname"></span>
+               </div>
+               <div class="form__container">
+                  <label for="address" class="form__label">Adresse :</label>
+                  <button class="form__button">
+                  <i class="fas fa-home"></i>
+                  </button>
+                  <input id="address" class="form__input" type="text" placeholder="Votre adresse postale">
+                  <span id="missing-address"></span>
+               </div>
+               <div class="form__container">
+                  <label for="city" class="form__label">Ville :</label>
+                  <button class="form__button">
+                  <i class="fas fa-home"></i>
+                  </button>
+                  <input id="city" class="form__input" type="text" placeholder="Votre ville">
+                  <span id="missing-city"></span>
+               </div>
+               <div class="form__container">
+                  <label for="email" class="form__label">email :</label>
+                  <button class="form__button">
+                  <i class="fas fa-envelope"></i>
+                  </button>
+                  <input id="email" class="form__input" type="text" placeholder="Votre adresse email">
+                  <span id="text"></span>
+                  <span id="missing-email"></span>
+               </div>
             </form>
-    </div>
-        <a><button class="order__button" type="button">Confirmer votre commande</button></a>
-    </main>
-    <footer class="footer">
-        <div class="footer__socials">
-            <a href="index.html"><i class="fab fa-facebook"></i></a>
-            <a href="index.html"><i class="fab fa-instagram"></i></a>
-            <a href="index.html"><i class="fab fa-twitter"></i></a>
-            <a href="index.html"><i class="fab fa-youtube"></i></a>
-        </div>
-        <a href="mailto:oricam@gmail.com" class="footer__contact">Contact</a>
-    </footer>
-    <script src="https://kit.fontawesome.com/82c91e6d22.js" crossorigin="anonymous"></script>
-
-    <script type="module" src="JS/panier.js"></script>
-</body>
+         </div>
+         <a class="order__button">Confirmer votre commande</a>
+      </main>
+      <footer class="footer">
+         <div class="footer__socials">
+            <a href="index.html">
+            <i class="fab fa-facebook"></i>
+            </a>
+            <a href="index.html">
+            <i class="fab fa-instagram"></i>
+            </a>
+            <a href="index.html">
+            <i class="fab fa-twitter"></i>
+            </a>
+            <a href="index.html">
+            <i class="fab fa-youtube"></i>
+            </a>
+         </div>
+         <a href="mailto:oricam@gmail.com" class="footer__contact">Contact</a>
+      </footer>
+      <script src="https://kit.fontawesome.com/82c91e6d22.js" crossorigin="anonymous"></script>
+      <script type="module" src="JS/panier.js"></script>
+   </body>
 </html>
+COPY TO CLIPBOARD

@@ -26,8 +26,6 @@ h1 {
   cursor: pointer;
   border-radius: 5px;
   background-color: #594b20;
-  /*-webkit-box-shadow: 0px 20px 0px -10px #a9a08e, 0px -20px 0px -10px #a9a08e, 20px 0px 0px -10px #a9a08e, -20px 0px 0px -10px #a9a08e, 0px 0px 0px 10px #000, 5px 5px 15px 5px rgba(0,0,0,0); 
-  box-shadow: 0px 18px 0px -10px #a9a08e, 0px -18px 0px -10px #a9a08e, 18px 0px 0px -10px #a9a08e, -18px 0px 0px -10px #a9a08e, 0px 0px 0px 10px #000, 5px 5px 15px 5px rgba(0,0,0,0);*/
 }
 .banner__button:hover {
   transition: 300ms;
@@ -153,6 +151,7 @@ header i:hover {
   position: relative;
   width: 100%;
   height: 50rem;
+  margin-bottom: 6rem;
 }
 .banner__title {
   position: absolute;
@@ -163,13 +162,22 @@ header i:hover {
 .banner__button {
   position: absolute;
   top: 18rem;
-  margin-left: 20vw;
+  margin-left: 7rem;
   padding: 1.5rem 2rem 1.5rem 2rem;
 }
 .banner__image {
   width: 100%;
   height: 80%;
   object-fit: cover;
+}
+.banner__description {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 2rem;
+  margin-top: -10rem;
+}
+.banner h2 {
+  font-size: 2.5rem;
 }
 
 #products {
@@ -213,10 +221,7 @@ header i:hover {
   }
   .banner__button {
     margin-left: 8vw;
-    font-size: 0.8rem;
     padding: 1rem;
-    width: 8rem;
-    height: 4rem;
   }
 
   #products {
@@ -317,12 +322,10 @@ header i:hover {
 }
 .checkout__buttons .checkout__button {
   border-style: none;
-  height: 3rem;
+  padding: 0.7rem;
   background-color: #9ACD32;
   border-radius: 15px;
-  font-size: 1rem;
   font-weight: bold;
-  margin-top: 1rem;
   transition: 300ms;
 }
 .checkout__buttons .checkout__button:hover {
@@ -366,12 +369,12 @@ header i:hover {
   display: block;
   margin: auto;
   margin-top: 2rem;
-  height: 3rem;
-  width: 15rem;
+  padding: 0.7rem;
+  text-align: center;
+  width: 12rem;
   border-radius: 15px;
   border-style: none;
   font-weight: bold;
-  font-size: 1rem;
   background: #9ACD32;
   cursor: pointer;
   transition: 300ms;
