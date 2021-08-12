@@ -14,6 +14,7 @@ export class ProductService {
 	}
 
 	displayProduct(product) {
+		//Récupération du conteneur dans le html puis injection dynamique du html dans ce dernier
 		const containerProduct = document.getElementById('containerproduct');
 		containerProduct.insertAdjacentHTML(
 			"beforeend",
@@ -35,7 +36,7 @@ export class ProductService {
         </article>`
 		);
 
-		//Pour la sélection des objectifs
+		//Selection des objectifs
 		const lenses = product.lenses;
 		lenses.forEach(function(lens) {
 			const objectif = document.getElementById('objectif');
@@ -43,11 +44,11 @@ export class ProductService {
 		});
 
 
-		//On écoute le bouton ajouter au panier au click
+		//Ecoute du bouton btnCart pour l'ajout au panier et localStorage
 		let addToCartBtn = document.getElementById('btnCart');
 		addToCartBtn.addEventListener('click', (event) => {
 
-			/*************************************************LOCAL STORAGE****************************************/
+			/////////////////////////////////////LOCAL STORAGE\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 			//Création d'un tableau contenant les infos d'un article
 			let productOptions = {
 				image: product.image,
@@ -63,7 +64,7 @@ export class ProductService {
 			const addLocalStorage = () => {
 				//Ajout dans le tableau de l'objet avec les valeurs choisies par l'utilisateur
 				localStorageProduct.push(productOptions);
-				//Transformation en format JSON et envoyer dans la key article du localStorage
+				//Transformation en format JSON envoi dans la key product du localStorage
 				localStorage.setItem("product", JSON.stringify(localStorageProduct));
 			};
 
