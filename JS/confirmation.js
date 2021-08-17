@@ -1,7 +1,6 @@
 //Récupérer l'orderId de la commande
-let orderId = window.location.search; 
-orderId = orderId.substring(9);
-const urlParams = new URLSearchParams(orderId);
+let params = new URLSearchParams(window.location.search);
+let orderId = params.get("orderId");
 
 //Récupérer le prix total de la commande passée 
 const finalPrice = JSON.parse(localStorage.getItem("finalPrice"));
