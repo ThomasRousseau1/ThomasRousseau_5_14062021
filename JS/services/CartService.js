@@ -81,10 +81,10 @@ export class CartService {
         `;
 
         tableContainer.appendChild(displayTotalPrice);
-        const mainContainer = document.getElementsByTagName("tbody")[0];
+        const mainContainer = document.getElementsByTagName("table")[0];
 
         //Pour signaler que le panier est vide
-        if (finalPrice === 0 || localStorageProduct === null) {
+        if (finalPrice == 0) {
             const emptyCart = `
             <div class="container-empty-cart">
                 <div>Le panier est vide ! <i class="fas fa-camera-retro"></i></div>
