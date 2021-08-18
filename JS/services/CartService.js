@@ -13,7 +13,7 @@ export class CartService {
     }
 
     displayCart(cart) {
-        //Affichage des produits du localStorage dans le panie
+        //Affichage des produits du localStorage dans le panier
         const tableContainer = document.getElementById('table__container');
 
         for (const product of cart.products) {
@@ -40,6 +40,7 @@ export class CartService {
                 event.preventDefault();
 
                 let objectId = buttonObject.id.split("_")[1];
+
                 //Pour récupérer la ligne du produit que l'on souhaite supprimer
                 let itemRow = document.getElementById("productRow_" + objectId);
 
