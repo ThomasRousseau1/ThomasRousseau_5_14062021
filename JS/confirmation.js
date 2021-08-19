@@ -6,12 +6,15 @@ let orderId = params.get("orderId");
 const finalPrice = JSON.parse(localStorage.getItem("finalPrice"));
 
 //Message de remerciement avec n° de commande et prix total 
-const orderContainer = document.querySelector(".summary"); 
-orderContainer.insertAdjacentHTML ("beforeend",
-    `<h3 class="summary__title">Récapitulatif de votre commande :</h3>
-    <p class="summary__description">Commande n°<strong>${orderId}</strong></p>
-    <p class="summary__price">Prix total : <strong>${finalPrice} €</strong></p>`
-)
+function displaySummary() {
+    const orderContainer = document.querySelector(".summary"); 
+    orderContainer.insertAdjacentHTML ("beforeend",
+        `<h3 class="summary__title">Récapitulatif de votre commande :</h3>
+        <p class="summary__description">Commande n°<strong>${orderId}</strong></p>
+        <p class="summary__price">Prix total : <strong>${finalPrice} €</strong></p>`
+    )
+}
+displaySummary();
 
 //Effacer le localStorage quand l'utilisateur quitte la page
 localStorage.clear();
