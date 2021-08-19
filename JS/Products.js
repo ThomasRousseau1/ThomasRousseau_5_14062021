@@ -1,7 +1,5 @@
 import {ProductService} from "./services/ProductService.js";
 
-
-
 init();
 
 async function init() {
