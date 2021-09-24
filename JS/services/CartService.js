@@ -56,7 +56,7 @@ export class CartService {
         });
     }
 
-
+    //Function pour mettre à jour le prix total 
     updateTotal() {
         let totalPrice = [];
 
@@ -135,7 +135,12 @@ export class CartService {
                 if (regExpNamesCity(firstNameValidation)) {
                     document.getElementById("missing-firstname").innerHTML = '<i class="fas fa-check-circle" id="form-success"></i>';
                     return true;
-                } else {
+                } 
+                if (!firstNameValidation) {
+                    alert('Veuillez entrer votre prénom');
+                    return false;
+                }
+                else {
                     document.getElementById("missing-firstname").innerHTML = '<i class="fas fa-times-circle" id="form-warning"></i>';
                     alert(textAlert("Prénom"));
                     return false;
